@@ -109,6 +109,18 @@ function createTemplate(mainWindow, config) {
           }
         }
       }
+    },{
+      label: 'Channel selector',
+      accelerator: 'CmdOrCtrl+T',
+      click(item, focusedWindow) {
+        console.log(focusedWindow.webContents.executeJavaScript(`
+          webview.sendInputEvent({
+              type: 'keyDown',
+              modifiers: ['cmd'],
+              keyCode: 'k'
+          })
+        `));
+      }
     }, {
       role: 'togglefullscreen'
     }, separatorItem, {

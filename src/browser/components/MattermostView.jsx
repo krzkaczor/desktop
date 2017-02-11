@@ -82,6 +82,7 @@ const MattermostView = React.createClass({
     // 'dom-ready' means "content has been loaded"
     // So this would be emitted again when reloading a webview
     webview.addEventListener('dom-ready', () => {
+      global.webview = webview
       // webview.openDevTools();
 
       // Use 'Meiryo UI' and 'MS Gothic' to prevent CJK fonts on Windows(JP).
